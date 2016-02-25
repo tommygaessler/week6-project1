@@ -36,7 +36,7 @@ $(document).ready(function(){
 			$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
 				{
 					api_key: "4bc9fb038f6eaa557f946ead1eef1bd5",
-					query: stateName,
+					tags: "sunset",
 					format: "json"
 				},
 				function(data) {
