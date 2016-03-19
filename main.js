@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	$.ajax({
-		url: 'https://api.myjson.com/bins/20gec',
+		url: 'https://api.myjson.com/bins/3gobv',
 		type: 'GET',
 		data: {
 			format: 'json'
@@ -16,7 +16,11 @@ $(document).ready(function(){
 				var cap = states[i].capital;
 				var entered = states[i].enteredUnion;
 				var pop = states[i].population;
-				$('#states').append("<h3>" + firstName + "</h3><h4>" + cap + " - " + entered + " - " + pop + "</h4>");
+				var birds = states[i].symbols[0].bird;
+				var tree = states[i].symbols[0].tree;
+				var flower = states[i].symbols[0].flower;
+				var flag = states[i].symbols[1].flag;
+				$('#states').append("<h3>" + firstName + "</h3><h4>" + cap + " - " + entered + " - " + pop + " - " + birds + " - " + tree + " - " + flower + " - " + "</h4>");
 				$('#states').append("<span id='pics'>" + "</span>");
 				document.getElementById("pics").id = firstName;
 				afterLoad();
@@ -35,8 +39,8 @@ $(document).ready(function(){
 			console.log(stateName)
 			$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
 				{
-					api_key: "4bc9fb038f6eaa557f946ead1eef1bd5",
-					tags: "sunset",
+					api_key: "",
+					tags: stateName + "," + "sky",
 					format: "json"
 				},
 				function(data) {
